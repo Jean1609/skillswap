@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SkillSwap</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+<header>
+    <h1>SkillSwap</h1>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/cursos">Cursos</a>
+        <a href="/ranking">Ranking</a>
+
+        {% if session.get("user_id") %}
+            <a href="/criar">Criar Curso</a>
+            <a href="/logout">Logout</a>
+        {% else %}
+            <a href="/login">Login</a>
+            <a href="/cadastro">Cadastro</a>
+        {% endif %}
+    </nav>
+</header>
+
+{% block content %}{% endblock %}
+
+</div>
+
+</body>
+</html>
